@@ -13,42 +13,40 @@ const images = [
   },
 ];
 
-// const imagesGallery = document.querySelector(".gallery");
-// // console.log(imagesGallery);
-
-// const elements = images.map((option) => {
-//   const itemEl = document.createElement("li");
-//   itemEl.classList.add("item");
-//   // console.log(itemEl);
-
-//   const imgEl = document.createElement("img");
-//   imgEl.src = `${option.url}`;
-//   imgEl.alt = `${option.alt}`;
-//   imgEl.width = 320;
-//   // imgEl.style.backgroundColor =
-//   // console.log(imgEl);
-
-//   // images.push(option);
-
-//   itemEl.append(imgEl);
-
-//   return itemEl;
-//   // imagesGallery.append(itemEl, imgEl);
-// });
-// // .join("");
-// // console.log(imagesGallery);
-// // console.log(elements);
-// // imagesGallery.insertAdjacentHTML("beforeend", elements);
-// imagesGallery.append(...elements);
-// //
-// ===========================================================
-
 const imagesGallery = document.querySelector(".gallery");
 
-const itemGallery = ({ url, alt }) =>
-  `<li class = item3 ><img src = '${url} alt = '${alt}' width = '320' <li> `;
-console.log(itemGallery);
+const itemGallery = images
+  .map(
+    ({ url, alt }) =>
+      `<li class = item3 ><img src = '${url} alt = '${alt}' width = '320' <li> `
+  )
+  .join("");
+// console.log(itemGallery);
+imagesGallery.insertAdjacentHTML("beforeend", itemGallery);
 
-const itemEl = images.reduce((item, items) => item + itemGallery(items), "");
-console.log(itemEl);
-imagesGallery.insertAdjacentHTML("beforeend", itemEl);
+// const itemEl = document.querySelectorAll("li");
+// console.log("~ itemEl", itemEl);
+
+// itemEl.style.cssText = `
+// display: flex;
+// justify-content: center;
+// background-image: repeating-linear-gradient(
+//     -90deg,
+//     #606dbc,
+//     #606dbc 10px,
+//     #465298 10px,
+//     #465298 20px
+//   );
+// `;
+
+//
+// ===========================================================
+
+// const imagesGallery = document.querySelector(".gallery");
+
+// const itemGallery = ({ url, alt }) =>
+//   `<li class = item3 ><img src = '${url} alt = '${alt}' width = '320' <li> `;
+
+// const itemEl = images.reduce((item, items) => item + itemGallery(items), "");
+// // console.log(itemEl);
+// imagesGallery.insertAdjacentHTML("beforeend", itemEl);
