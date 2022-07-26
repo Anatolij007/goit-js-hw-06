@@ -5,6 +5,13 @@
 
 // Пошук елементів
 const inputName = document.querySelector("#name-input");
-console.log("~ inputName", inputName);
 const outputName = document.querySelector("#name-output");
-console.log("~ outputName", outputName);
+
+// Додаємо слухача
+inputName.addEventListener("input", onInputChange);
+
+function onInputChange(event) {
+  outputName.innerHTML = event.currentTarget.value
+    ? event.currentTarget.value
+    : "Anonymous";
+}
