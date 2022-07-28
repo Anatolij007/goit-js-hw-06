@@ -15,3 +15,45 @@
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
+
+const refs = {
+  divControls: document.querySelector("#controls"),
+  input: document.querySelector("input"),
+  buttonCreate: document.querySelector("[data-create]"),
+  buttonDestroy: document.querySelector("[data-destroy]"),
+  divBoxes: document.querySelector("#boxes"),
+};
+// console.log(refs.divControls);
+// console.log(refs.input);
+// console.log(refs.buttonCreate);
+// console.log(refs.buttonDestroy);
+// console.log(refs.divBoxes);
+
+refs.buttonCreate.addEventListener("click", createBoxes);
+refs.buttonDestroy.addEventListener("click", destroyBoxes);
+
+const divSize = 30;
+
+function createBoxes() {
+  const newDivs = [];
+  const amount = refs.input.value;
+
+  for (let i = 0; i < amount; i += 1) {
+    let growingSize = divSize + i * 10;
+    let randomColor = getRandomHexColor();
+
+    const boxItem = `<div style="width:${growingSize}px;
+    height:${growingSize}px; background-color:${randomColor}" ></div>`;
+
+    newDivs.push(boxItem);
+  }
+
+  const allDivs = newDivs.join("");
+
+  refs.divBoxes.insertAdjacentHTML("beforeend", allDivs);
+}
+
+function destroyBoxes() {
+  refs.input.value = "";
+  refs.divBoxes.innerHTML = "";
+}
