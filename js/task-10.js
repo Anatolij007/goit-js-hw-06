@@ -23,27 +23,26 @@ const refs = {
   buttonDestroy: document.querySelector("[data-destroy]"),
   divBoxes: document.querySelector("#boxes"),
 };
-// console.log(refs.divControls);
-// console.log(refs.input);
-// console.log(refs.buttonCreate);
-// console.log(refs.buttonDestroy);
-// console.log(refs.divBoxes);
 
 refs.buttonCreate.addEventListener("click", createBoxes);
 refs.buttonDestroy.addEventListener("click", destroyBoxes);
 
-const divSize = 30;
-
+// const divSize = 30;
+let width = 30;
+let height = 30;
 function createBoxes() {
   const newDivs = [];
   const amount = refs.input.value;
 
   for (let i = 0; i < amount; i += 1) {
-    let growingSize = divSize + i * 10;
+    // let growingSize = divSize + 10 * i;
+
+    width += 10;
+    height += 10;
     let randomColor = getRandomHexColor();
 
-    const boxItem = `<div style="width:${growingSize}px;
-    height:${growingSize}px; background-color:${randomColor}" ></div>`;
+    const boxItem = `<div style="width:${width}px;
+    height:${height}px; background-color:${randomColor}" ></div>`;
 
     newDivs.push(boxItem);
   }
@@ -56,4 +55,6 @@ function createBoxes() {
 function destroyBoxes() {
   refs.input.value = "";
   refs.divBoxes.innerHTML = "";
+  width = 30;
+  height = 30;
 }

@@ -9,35 +9,27 @@
 // Виведи об'єкт із введеними даними в консоль і очисти значення полів форми методом reset.
 
 const form = document.querySelector(".login-form");
-// console.log("~ form", form);
-
 const button = document.querySelector("button");
-// console.log("~ button", button);
 
 form.addEventListener("submit", onFormSumbit);
 
 function onFormSumbit(event) {
   event.preventDefault();
 
+  const dataUser = [
+    {
+      email: event.currentTarget.elements.email.value,
+      password: event.currentTarget.elements.password.value,
+    },
+  ];
   if (
     event.currentTarget.elements.email.value === "" ||
     event.currentTarget.elements.password.value === ""
   ) {
     alert("Всі поля повинні бути заповнені");
   } else {
-    const formData = new FormData(event.currentTarget);
+    console.log(...dataUser);
 
-    const formValue = [];
-    formData.forEach((value, name) => {
-      //   console.log("name", name);
-      //   console.log("value", value);
-      formValue.push({ value, name });
-
-      console.log(...formValue);
-    });
-
-    // console.dir(event.currentTarget.elements.email.value);
-    // console.dir(event.currentTarget.elements.password.value);
+    form.reset();
   }
-  form.reset();
 }
