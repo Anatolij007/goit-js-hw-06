@@ -22,3 +22,23 @@ function onBlur(event) {
     input.classList.remove("valid");
   }
 }
+// ======================================================
+// const input = document.querySelector("input");
+// const textLength = input.dataset.length;
+
+// function handleChangeColor(event) {
+//   // console.log(event.currentTarget.value.length);
+//   if (event.currentTarget.value.length === Number(textLength)) {
+//     input.classList.remove("invalid");
+//     input.classList.add("valid");
+//     // console.log("все гуд");
+//   } else {
+//     input.classList.remove("valid");
+//     input.classList.add("invalid");
+//     // event.target.style.borderColor = "red";
+
+//     // console.log("відстій");
+//   }
+// }
+
+// input.addEventListener("blur", handleChangeColor);

@@ -13,5 +13,18 @@ fontSizeControl.addEventListener("input", onScroll);
 
 function onScroll(event) {
   const inputSize = event.target.value;
+  console.log("event.target.value:", event.target.value);
   span.style.fontSize = `${inputSize}px`;
 }
+// ==============================================
+// const input = document.querySelector("input");
+// // console.log("input:", input);
+// const text = document.querySelector("span");
+// // console.log("text:", text);
+
+// function handleChangeTextSize() {
+//   text.style.fontSize = input.value + "px";
+//   // console.log(input.value);
+// }
+
+// input.addEventListener("input", handleChangeTextSize);

@@ -13,16 +13,26 @@ const images = [
   },
 ];
 
-const imagesGallery = document.querySelector(".gallery");
+const galleryEl = document.querySelector(".gallery");
+console.log("galleryEl:", galleryEl);
 
-const itemGallery = images
-  .map(
-    ({ url, alt }) =>
-      `<li class = item3 ><img src = '${url}' alt = '${alt}' width = '320' <li> `
-  )
-  .join("");
-// console.log(itemGallery);
-imagesGallery.insertAdjacentHTML("beforeend", itemGallery);
+const makeGallery = ({ url, alt }) => {
+  return `<li class = item3 ><img src="${url}" alt="${alt}" width=320px></li>`;
+};
+
+const makeGalleryAll = images.map(makeGallery).join("");
+
+galleryEl.insertAdjacentHTML("beforebegin", makeGalleryAll);
+// const imagesGallery = document.querySelector(".gallery");
+
+// const itemGallery = images
+//   .map(
+//     ({ url, alt }) =>
+//       `<li class = item3 ><img src = '${url}' alt = '${alt}' width = '320' <li> `
+//   )
+//   .join("");
+// // console.log(itemGallery);
+// imagesGallery.insertAdjacentHTML("beforeend", itemGallery);
 
 // const itemEl = document.querySelectorAll("li");
 // console.log("~ itemEl", itemEl);
